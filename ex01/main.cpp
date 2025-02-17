@@ -5,14 +5,11 @@ int main( void ) {
 
     scavTrap.attack("target");
     scavTrap.takeDamage(5);
-    scavTrap.beRepaired(5);
-
-    scavTrap.attack("target");
-    scavTrap.takeDamage(5);
     scavTrap.guardGate();
 
     scavTrap.attack("target");
     scavTrap.takeDamage(125);
     scavTrap.guardGate();
+    
     return 0;
 }

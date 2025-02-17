@@ -5,13 +5,11 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 	_hitpoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;
-	_guardGateMode = false;
 	return ;
 }
 
 ScavTrap::ScavTrap(ScavTrap const & copy) : ClapTrap(copy) {
 	std::cout << "--- ScavTrap Copy Constructor called" << std::endl;
-	_guardGateMode = copy._guardGateMode;
 	return ;
 }
 
@@ -23,7 +21,6 @@ ScavTrap::~ScavTrap(void) {
 ScavTrap & ScavTrap::operator=(ScavTrap const & src) {
 	std::cout << "--- ScavTrap Assignation operator called" << std::endl;
 	this->_name = src._name;
-	this->_guardGateMode = src._guardGateMode;
 	this->_hitpoints = src._hitpoints;
 	this->_energyPoints = src._energyPoints;
 	this->_attackDamage = src._attackDamage;
@@ -41,12 +38,11 @@ void ScavTrap::attack(std::string const & target) {
 }
 
 void ScavTrap::guardGate(void) {
-	if (_hitpoints < 1 || _energyPoints < 1 || _guardGateMode == true)
+	if (_hitpoints < 1 || _energyPoints < 1)
 	{
-		std::cout << "ScavTrap " << _name << " is not able to enter Gate keeper mode!" << std::endl;
+		std::cout << "ScavTrap " << _name << " is not able to enter in Gate keeper mode!" << std::endl;
 		return ;
 	}
 	std::cout << "ScavTrap is now in Gate keeper mode!" << std::endl;
-	_guardGateMode = true;
 	return ;
 }
